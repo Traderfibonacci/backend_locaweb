@@ -26,8 +26,8 @@ public class EmailService {
     @Autowired
     private EmailRepository repository;
 
-    private static final int MAX_EMAILS_PER_HOUR = 100;
-    private static final int MAX_EMAILS_PER_DAY = 500;
+    private static final int MAX_EMAILS_PER_HOUR = 10;
+    private static final int MAX_EMAILS_PER_DAY = 100;
     private static final long MIN_INTERVAL_BETWEEN_EMAILS = 30000;
 
     private Map<String, UserEmailStats> userStats = new HashMap<>();
@@ -73,7 +73,7 @@ public class EmailService {
         }
     }
 
-    //Fazer o DTO de Leitura de Email
+
     public EmailExhibitDto findEmail(Long id){
         Optional<Email> emailOptional = repository.findById(id);
         if(emailOptional.isPresent()){
@@ -122,7 +122,7 @@ public class EmailService {
         return repository.listSentEmails(sender);
     }
 
-    //Fazer o dto de Exibição de Email
+
     public List<EmailExhibitDto> listEmailForPeriod(LocalDate initialDate, LocalDate finalDate) {
         return repository.listEmailForPeriod(initialDate, finalDate);
     }

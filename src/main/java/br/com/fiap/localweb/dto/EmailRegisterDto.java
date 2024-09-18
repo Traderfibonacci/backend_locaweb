@@ -14,8 +14,6 @@ public record EmailRegisterDto(
         @NotBlank(message = "O assunto é obrigatório")
         String subject,
         @NotBlank(message = "O conteúdo é obrigatório")
-        String content,
-        @NotNull(message = "O campo isRead é obrigatório")
-        Boolean isRead
+        String content
 ) {
 }
